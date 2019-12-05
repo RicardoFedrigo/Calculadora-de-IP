@@ -21,6 +21,20 @@ class Calculadora_IP {
     return this.__MASK;
   }
 
+  //arruma ip
+  static ipToString(arr) {
+    let aux = "";
+    for (let i = 0; i < arr.length; i++) {
+      if (i != arr.length - 1) {
+        aux = aux + arr[i].toString() + ".";
+      } else {
+        aux = aux + arr[i].toString();
+      }
+    }
+    console.log(aux);
+    return aux;
+  }
+
   //Verifica se a mascara esta dentro do range
   valida_mascara() {
     let init, fim;
@@ -45,7 +59,7 @@ class Calculadora_IP {
     broadcast[broadcast.length - 1]--;
     rede[rede.length - 1]++;
 
-    return `${rede} - ${broadcast}`;
+    return `${Calculadora_IP.ipToString(rede)} - ${Calculadora_IP.ipToString(broadcast)}`;
   }
   //Verifica o 1 da mascara
   valid_mask() {

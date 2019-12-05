@@ -24,7 +24,7 @@ function loadFile() {
     fr.onloadend = onLoad;
   }
 
-  function  receivedText(e) {
+  function receivedText(e) {
     var lines = e.target.result;
     var newArr = JSON.parse(lines);
     onLoad();
@@ -34,7 +34,7 @@ function loadFile() {
 }
 //Cria arquivo do tipo JSON para Download
 function dowload_IP() {
-  let data = criaJson()
+  let data = criaJson();
   var blob = new Blob([JSON.stringify(data)], { type: "application/json" });
   if (window.navigator.msSaveOrOpenBlob) {
     window.navigator.msSaveBlob(blob, "ipCalculado");
@@ -49,15 +49,15 @@ function dowload_IP() {
 //Cria Json para ser colocado no arquivo
 function criaJson() {
   objetoJson = {
-    ip: ip_json.ip,
+    ip: Calculadora_IP.ipToString(ip_json.ip),
     ip_class: ip_json.ip_class(),
-    mascara: ip_json.mask,
+    mascara: Calculadora_IP.ipToString(ip_json.mask),
     mascara_class: ip_json.mask_class(),
     ip_valido: ip_json.valid_ip(),
     bits_mascara: ip_json.valid_mask(),
     ip_privado: ip_json.ip_privados(),
-    rede: ip_json.ip_rede(),
-    broadcast: ip_json.ip_broadcast(),
+    rede: Calculadora_IP.ipToString(ip_json.ip_rede()),
+    broadcast: Calculadora_IP.ipToString(ip_json.ip_broadcast()),
     rumero_host: ip_json.qtd_host(),
     range_host: ip_json.range_host()
   };
@@ -97,7 +97,9 @@ function onLoad() {
                       <b>IP:<b>
                     </td>
                     <td>
-                      ${ip_json.ip} / ${ip_json.valid_mask()} 
+                      ${Calculadora_IP.ipToString(
+                        ip_json.ip
+                      )} / ${ip_json.valid_mask()} 
                     </td>
                   </tr>
                   <tr>
@@ -125,7 +127,7 @@ function onLoad() {
                         <b>Mascara:<b>
                       </td>
                       <td>  
-                        ${ip_json.mask}
+                        ${Calculadora_IP.ipToString(ip_json.mask)}
                       </td>
                     </tr>
                     <tr>
@@ -149,7 +151,7 @@ function onLoad() {
                         <b>IP de rede:<b>
                       </td>
                       <td>  
-                        ${ip_json.ip_rede()}
+                        ${Calculadora_IP.ipToString(ip_json.ip_rede())}
                       </td>
                     </tr>
                     <tr>
@@ -157,7 +159,7 @@ function onLoad() {
                         <b>IP de broadcast:<b>
                       </td>
                       <td>  
-                        ${ip_json.ip_broadcast()}
+                        ${Calculadora_IP.ipToString(ip_json.ip_broadcast())}
                       </td>
                     </tr>
                     <tr>
