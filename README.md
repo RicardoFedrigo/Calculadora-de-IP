@@ -24,8 +24,8 @@ O arquivo esta estruturado:
   assets/ -> | -> Imagens e audio, etc...
   css/ -> | -> Customização da página.
   files/ -> | -> Arquivo exemplo.json e pdf da tarefa.
-  
-  
-  
-  
-
+ 
+  NOTAS
+  =================
+  Devido o Jquery e bootstrap serem requisitados da internet, sem conexão com a internet 
+  o programa não vai funcionar corretamente
