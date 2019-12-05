@@ -1,0 +1,19 @@
+#comeco {
+  margin-left: 0px;
+  margin-right: 0px;
+  background-image: url("../assets/Matrix-GIF.gif");
+  color: 1afb0f;
+}
+.btn {
+  background-color: black;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+}
+.btn:hover {
+  background-color: Grey;
+}
+.btn:focus {
+  background-color: Grey;
+}
