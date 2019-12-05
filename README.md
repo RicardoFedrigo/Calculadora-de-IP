@@ -15,7 +15,7 @@ upload de um arquivo do tipo json, com a descrições escrita na pagina inicial.
 
 Estrutura
 ====================
-O arquivo esta estruturado:
+O arquivo esta estruturado:` 
   index.html ->Arquivo principal e de onde sera carregado.
   js/ -> |->/model -> Local onde fica classes .
          |->/controller -> Controla a arquivos e classes e regra de negocios. 
@@ -24,8 +24,8 @@ O arquivo esta estruturado:
   assets/ -> | -> Imagens e audio, etc...
   css/ -> | -> Customização da página.
   files/ -> | -> Arquivo exemplo.json e pdf da tarefa.
-  
-  
-  
-  
-
+  `
+  NOTAS
+  =================
+  Devido o Jquery e bootstrap serem requisitados da internet, sem conexão com a internet 
+  o programa não vai funcionar corretamente
