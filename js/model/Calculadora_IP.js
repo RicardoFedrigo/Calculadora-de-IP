@@ -21,7 +21,7 @@ class Calculadora_IP {
     return this.__MASK;
   }
 
-  //arruma ip
+  //arruma ip trocando de array para um string
   static ipToString(arr) {
     let aux = "";
     for (let i = 0; i < arr.length; i++) {
@@ -31,11 +31,10 @@ class Calculadora_IP {
         aux = aux + arr[i].toString();
       }
     }
-    console.log(aux);
     return aux;
   }
 
-  //Verifica se a mascara esta dentro do range
+  //Verifica se a mascara esta dentro do range valido
   valida_mascara() {
     let init, fim;
     //Verifica se esta no range 2^32
@@ -53,6 +52,8 @@ class Calculadora_IP {
     return true;
   }
   //Rang de ips validos
+  //Caso nao seja mudado pelo usuario o menor e maior sao limitados para
+  //rota padrão e desvio broadcast, os restantes são ips validos
   range_host() {
     let broadcast = this.ip_broadcast();
     let rede = this.ip_rede();
@@ -61,7 +62,8 @@ class Calculadora_IP {
 
     return `${Calculadora_IP.ipToString(rede)} - ${Calculadora_IP.ipToString(broadcast)}`;
   }
-  //Verifica o 1 da mascara
+  //Verifica o 1 da mascara, sendo que depois do primeiro 0 que aparece nao pode
+  //se ter mais 1 
   valid_mask() {
     let num = 0;
     for (let i = 0; i < this.mask.length; i++) {
@@ -71,7 +73,9 @@ class Calculadora_IP {
     }
     return num;
   }
-  //Verifica se ip é valido na internet
+  //Verifica se ip é valido na internet, baseado nos slides passados em aula
+  //Alguns desses IP´s são reservado para uso pricado ou teste não sendo 
+  //endereçaveis na internet
   ip_privados() {
     if (into_range(this.ip, "10.0.0.0", "10.255.255.255")) return false;
     else if (into_range(this.ip, "127.0.0.0", "127.255.255.255")) return false;
@@ -90,7 +94,8 @@ class Calculadora_IP {
     else if (into_range(this.ip, "240.0.0.0", "255.255.255.255")) return "E";
     throw new Error("Ip não é um valor valido");
   }
-  // Verifica o ip da rede
+  // Verifica o ip da rede, aqui se converte o ip para binario e realiza 
+  //Operacao AND com o ip
   ip_rede() {
     let rede_ip = [];
     for (let i = 0; i < this.ip.length; i++) {
@@ -107,7 +112,7 @@ class Calculadora_IP {
     else if (into_range(this.mask, "255.255.255.0", "255.255.255.255"))
       return "D";
   }
-  // Acha o ip de broadcast
+  // Acha o ip de broadcast, procura o valor broadCast
   ip_broadcast() {
     let in_mask = this.mask.map(e => portNOT(intToBin(e)));
     let bin_ip = this.ip.map(e => intToBin(e));
@@ -118,7 +123,8 @@ class Calculadora_IP {
     ip_broad = ip_broad.map(e => binToInt(e));
     return ip_broad;
   }
-  // Quantidade de host que rede pode ter
+  // Quantidade de host que rede pode ter, ele valida o range de ip e depois 
+  // retorna a diferença
   qtd_host() {
     let min_host = "";
     let host_bin = "";
@@ -137,6 +143,7 @@ class Calculadora_IP {
     return numero_host;
   }
 
+  //Mostra quantos hosts pode-se ter dentro da rede
   host_validos() {
     return this.qtd_host() - 2;
   }
@@ -145,7 +152,7 @@ class Calculadora_IP {
     let controle = this.mask.map(e => portNOT(intToBin(e)));
     return controle;
   }
-
+  //Verifica se o ip não é maior que 2⁸
   valid_ip() {
     for (let i = 0; i < this.ip.length; i++) {
       if (this.ip[i] > 255 || this.ip[i] < 0) {
@@ -154,5 +161,3 @@ class Calculadora_IP {
     }
   }
 }
-//Sites em que basiei e busquei referencias
-//--http://www.vlsm-calc.net/ipclasses.php

@@ -2,6 +2,7 @@
 function stringIpToArr(string_ip) {
   return string_ip.split(".").map(e => parseInt(e));
 }
+//Verifica se dois valores de 32 bit's estao em um determinada faixa
 function into_range(arr, init, fin) {
   if (typeof arr == "string") {
     arr = stringIpToArr(arr);
@@ -19,14 +20,18 @@ function into_range(arr, init, fin) {
   }
   return true;
 }
+//Converte inteiro para binario
 function intToBin(number) {
   var result = (number >>> 0).toString(2);
   result = completaZero(result);
   return result;
 }
+//Converte binario para inteiro
 function binToInt(number) {
   return parseInt(number, 2);
 }
+
+//Caso a conversao de inteiro para binario fique faltando bit para completar 8
 function completaZero(bin_number) {
   size = 8 - bin_number.length;
 
@@ -35,6 +40,7 @@ function completaZero(bin_number) {
   }
   return bin_number;
 }
+//Porta AND feita para ver o broadcast, porem pode ser utilizada em outros lugares
 function portAND(ip, mask) {
   result_and = "";
   bin_ip = intToBin(ip);
@@ -50,6 +56,8 @@ function portAND(ip, mask) {
   }
   return result_and;
 }
+
+//Porta simples de negação NOT
 function portNOT(arr_bit) {
   var result_not = "";
   for (let i = 0; i < 8; i++) {
@@ -62,6 +70,7 @@ function portNOT(arr_bit) {
   }
   return result_not;
 }
+//Foi mal tava com sono =/
 function semCriatividade(ip, mascara) {
   var result_not = "";
 
@@ -76,6 +85,8 @@ function semCriatividade(ip, mascara) {
   return result_not;
 }
 
+//Verifica se existe algum bit 1 depois que aparece 0,
+//Se não existir retorna o numero de 0 no 32 bit
 function contador_mascara(mascara) {
 
   let num_1 = 0;
