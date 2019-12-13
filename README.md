@@ -15,7 +15,7 @@ upload de um arquivo do tipo json, com a descrições escrita na pagina inicial.
 
 #Estrutura
 =======================
-O arquivo esta estruturado:
+´O arquivo esta estruturado:
   index.html ->Arquivo principal e de onde sera carregado.
   js/ -> |->/model -> Local onde fica classes .
          |->/controller -> Controla a arquivos e classes e regra de negocios. 
@@ -23,7 +23,7 @@ O arquivo esta estruturado:
          |-> Utils.js -> Arquivo com funções auxiliares.
   assets/ -> | -> Imagens e audio, etc...
   css/ -> | -> Customização da página.
-  files/ -> | -> Arquivo exemplo.json e pdf da tarefa.
+  files/ -> | -> Arquivo exemplo.json e pdf da tarefa. ´
  
 #NOTAS
 =======================
@@ -32,12 +32,12 @@ O arquivo esta estruturado:
 
 #Escolhada Da linguagem 
 =======================
-  A linguagem programação javascript e linguagem de marcação foram escolhidas por serem 
-    de fácil aprendizagem e sendo suportadas em quase todos os navegadores modernos.
-  Foi tambem utilizados dois frameWorks muito populares hoje em dia, que são:
-        --Bootstrap: Framework de estilização CSS, ajudando e muito o programador a fazer 
+A linguagem programação javascript e linguagem de marcação foram escolhidas por serem 
+de fácil aprendizagem e sendo suportadas em quase todos os navegadores modernos.
+Foi tambem utilizados dois frameWorks muito populares hoje em dia, que são:
+--Bootstrap: Framework de estilização CSS, ajudando e muito o programador a fazer 
                      paginas bonitas e responsivas.
-        --JQuery : Framework feito em javascript, principalmente utilizado em paginas web
+--JQuery : Framework feito em javascript, principalmente utilizado em paginas web
                    para animações e realização de eventos dentro da pagina, como carregar
                    componentes da pagina, retirar ou colocar elementos etc....
 #Tecnologia JSON:
