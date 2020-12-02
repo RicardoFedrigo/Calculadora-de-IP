@@ -15,15 +15,15 @@ upload de um arquivo do tipo json, com a descrições escrita na pagina inicial.
 
 #Estrutura
 =======================
-´O arquivo esta estruturado:
-  index.html ->Arquivo principal e de onde sera carregado.
-  js/ -> |->/model -> Local onde fica classes .
-         |->/controller -> Controla a arquivos e classes e regra de negocios. 
-         |->/jquery -> Arquivo referente ao framework JQUERY : https://jquery.com/
-         |-> Utils.js -> Arquivo com funções auxiliares.
-  assets/ -> | -> Imagens e audio, etc...
-  css/ -> | -> Customização da página.
-  files/ -> | -> Arquivo exemplo.json e pdf da tarefa. ´
+´O arquivo esta estruturado:\n
+  index.html ->Arquivo principal e de onde sera carregado.\n
+  js -> |->/model -> Local onde fica classes .\n
+        |->/controller -> Controla a arquivos e classes e regra de negocios.\n 
+        |->/jquery -> Arquivo referente ao framework JQUERY : https://jquery.com/\n
+        |-> Utils.js -> Arquivo com funções auxiliares.\n
+  assets -> | -> Imagens e audio, etc...\n
+  css -> | -> Customização da página.\n
+  files -> | -> Arquivo exemplo.json e pdf da tarefa.\n ´
  
 #NOTAS
 =======================
