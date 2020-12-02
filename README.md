@@ -47,6 +47,8 @@ Bootstrap: Framework de estilização CSS, ajudando e muito o programador a faze
 JQuery : Framework feito em javascript, principalmente utilizado em paginas web
                    para animações e realização de eventos dentro da pagina, como carregar
                    componentes da pagina, retirar ou colocar elementos etc....
+
+                   
 Tecnologia JSON:
 ======================= 
   O JSON, é um acrônimo de JavaScript Object Notation, é um formato compacto, de padrão 
